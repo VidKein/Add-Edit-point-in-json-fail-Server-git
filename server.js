@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 4000; // Используется переме�
 // Абсолютный путь к файлу
 //const path = require('path');
 //const DATA_FILE = path.resolve(__dirname, './data/koordinats.json');
-const DATA_FILE ='./data/koordinats.json';
+const DATA_FILE ='https://add-edit-point-in-json-fail-server-git.onrender.com/data/koordinats.json';
 //
 app.use(express.json());
 app.use(cors()); // Разрешаем CORS для всех источников
