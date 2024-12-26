@@ -9,14 +9,13 @@ const app = express();
 const PORT = process.env.PORT || 4000; // Используется переменная окружения или 4000 по умолчанию
 // Абсолютный путь к файлу
 const path = require('path');
-const DATA_FILE = path.resolve(__dirname, '/data/koordinats.json');
-
+const DATA_FILE = path.resolve(__dirname, './data/koordinats.json');
 //
 app.use(express.json());
 app.use(cors()); // Разрешаем CORS для всех источников
 
 // Публичный доступ к data.json
-app.get('/data/koordinats.json', (req, res) => {
+app.get('/data/data.json', (req, res) => {
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
         if (err) {
             return res.status(500).json({ error: 'Ошибка чтения файла data.json' });
