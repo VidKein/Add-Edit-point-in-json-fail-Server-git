@@ -6,7 +6,7 @@ const fs = require('fs');
 const cors = require('cors'); // Для поддержки запросов с других доменов
 
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT || 4000; // Используется переменная окружения или 4000 по умолчанию
 // Абсолютный путь к файлу
 const path = require('path');
 const DATA_FILE = path.resolve(__dirname, '../server/data/koordinats.json');
