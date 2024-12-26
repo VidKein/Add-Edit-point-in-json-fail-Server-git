@@ -14,6 +14,17 @@ app.use(cors()); // Разрешаем CORS для всех источников
 // Путь к файлу
 const DATA_FILE = path.join(__dirname, 'data', 'koordinats.json');
 
+// Публичный доступ к data.json
+app.get('/data/koordinats.json', (req, res) => {
+    fs.readFile(DATA_FILE, 'utf8', (err, data) => {
+        if (err) {
+            return res.status(500).json({ error: 'Ошибка чтения файла data.json' });
+        }
+        res.setHeader('Content-Type', 'application/json');
+        res.send(data);
+    });
+});
+
 // Добавление данных
 app.post('/data', (req, res) => {
     const {dataName, dataJobs, id, positionX, positionY, vyska, date, systemCoordinates, positionType } = req.body;    
