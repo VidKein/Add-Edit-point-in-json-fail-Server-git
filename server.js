@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(cors()); // Разрешаем CORS для всех источников
 
 // Публичный доступ к data.json
-app.get('/public/data.json', (req, res) => {
+app.get('/Add-Edit-point-in-json-fail-Public-git/data/data.json', (req, res) => {
     fs.readFile(DATA_FILE, 'utf8', (err, data) => {
         if (err) {
             return res.status(500).json({ error: 'Ошибка чтения файла data.json' });
